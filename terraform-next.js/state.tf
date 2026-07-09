@@ -1,10 +1,9 @@
-import dynamic from "next/dynamic"
-
 terraform {
-    backend "s3" {
-        bucket = "yy-my-terraform-state"
-        key = "global/s3/terraform.tfstate"
-        region = "us-east-2"
-        dynamodb_table = "terraform-lock-flie"
-    }
+  backend "s3" {
+    bucket       = "ro-my-website-state"
+    key          = "terraform.tfstate"
+    region       = "us-west-2"
+    encrypt      = true
+    use_lockfile = true
+  }
 }
